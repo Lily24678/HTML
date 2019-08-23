@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Canvas API</title>
+		<style>
+			body {
+				margin: 0;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+
+	<body>
+		<canvas class="myCanvas">
+			<p>卧槽你的浏览器竟然不支持 canvas！</p>
+		</canvas>
+		<script>
+			/*设置canvas的尺寸*/
+			var canvas = document.querySelector('.myCanvas');
+			var width = canvas.width = window.innerWidth; //可视区域宽度
+			var height = canvas.height = window.innerHeight;
+
+			/*获取canvas的上下文并设置完成*/
+			var ctx = canvas.getContext('2d'); //这里所需2d画布。可选上下文还包括 WebGL（webgl）、WebGL 2（webgl2）等等
+			ctx.fillStyle = 'rgb(0,0,0)';
+			ctx.fillRect(0, 0, width, height); //画布左上角的坐标是(0, 0)，横坐标（x）轴向右延伸，纵坐标（y）轴向下延伸。
+			
+			/*描边（stroke）和线条宽度*/
+			ctx.strokeStyle = 'rgb(255,255,255)'; //设置描边颜色
+			ctx.lineWidth = 5; //默认的描边宽度是 1 像素
+			ctx.strokeRect(25, 25, 175, 200); //绘制一个矩形的轮廓。
+
+			ctx.fillStyle = 'rgb(255,0,0)';
+			ctx.fillRect(50, 50, 100, 150);
+			ctx.fillStyle = 'rgb(0,255,0)';
+			ctx.fillRect(75, 75, 100, 100);
+			ctx.fillStyle = 'rgba(255,0,255,0.75)';
+			ctx.fillRect(25, 100, 175, 50);
+
+			/*画线*/
+			ctx.fillStyle = 'rgb(255, 0, 0)';
+			ctx.beginPath();//钢笔起始位置为 (0, 0)
+			ctx.moveTo(300, 50);//将钢笔移动至另一个坐标点，不记录、不留痕迹，只将钢笔“跳”至新位置。
+			ctx.lineTo(400, 50); //绘制一条直线，终点坐标为 (150, 50)。此时路径沿 x 轴向右行走 100 像素。
+			var triHeight = 50 * Math.tan(degToRad(60));
+			ctx.lineTo(350, 50 + triHeight);
+			ctx.lineTo(300, 50);
+			// 填充颜色来绘制一个新的填充形状。
+			ctx.fill();
+			//ctx.stroke();//通过为当前绘制路径的区域描边，来绘制一个只有边框的形状。
+			
+			/*画圆*/
+			ctx.fillStyle = 'rgb(0, 0, 255)';
+			ctx.beginPath();
+			//通过连续的点来绘制整个圆或者弧（arc，即局部的圆）。arc() 的最后一个参数设置为 true，意味着弧将逆时针绘制.
+			ctx.arc(350, 250, 50, degToRad(0), degToRad(360), false);
+			ctx.fill();
+			
+			
+			ctx.fillStyle = 'yellow';
+			ctx.beginPath();
+			ctx.arc(400, 250, 50, degToRad(-45), degToRad(45), true);
+			ctx.lineTo(400, 250);
+			ctx.fill();
+
+			/*文本*/
+			ctx.strokeStyle = 'white';
+			ctx.lineWidth = 1;
+			ctx.font = '36px arial';
+			ctx.strokeText('Canvas text', 50, 300);//绘制文本外边框（描边）。
+			
+			ctx.fillStyle = 'red';
+			ctx.font = '48px georgia';
+			ctx.fillText('Canvas text', 50, 400);//绘制有填充色的文本。
+
+			/*在画布上绘制图片*/
+			var image = new Image();
+			image.src = '../img/firefox.png';
+			image.onload = function() {
+			  ctx.drawImage(image, 450, 50);//将图片绘制在画布上。
+			  ctx.drawImage(image, 10, 10, 185, 175, 450, 300, 185, 175);//仅需要显示图片的某一部分，或者需要改变尺寸
+			}
+			
+			/*将角度换算为弧度*/
+			function degToRad(degrees) {
+				return degrees * Math.PI / 180;
+			};
+		</script>
+	</body>
+
+</html>

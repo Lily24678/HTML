@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		
+		<title>MDN web学习</title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<script type="text/javascript" src="js/jquery-2.1.0.js" ></script>
+		<style>
+			#main{
+				width: 100rem;
+				height: 50rem;
+				border: #000000 solid 0.05rem;
+				display: flex;
+			}
+			#left{
+				border: #008000 solid 0.05rem;
+				flex: 0.3;
+			}
+			#right{
+				overflow: auto;
+				border: #800080 solid 0.05rem;
+				flex: 2;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main">
+			<div id="left">
+				<ol start="1">
+					<li><a href="javascript:void(0)" data-url = "other.html">HTML杂项</a></li>
+					<li><a href="javascript:void(0)" data-url = "事件.html">事件</a></li>
+					<li><a href="javascript:void(0)" data-url="CSS.html">CSS</a></li>
+					<li><a href="javascript:void(0)" data-url="HTML文字处理.html">HTML文字处理</a></li>
+					<li><a href="javascript:void(0)" data-url="HTML表单.html">HTML表单</a></li>
+					<li><a href="javascript:void(0)" data-url="HTML表格.html">HTML表格</a></li>
+					<li><a href="javascript:void(0)" data-url="JS.html">JS</a></li>
+					<li><a href="javascript:void(0)" data-url="meta-example.html">meta-example</a></li>
+					<li><a href="javascript:void(0)" data-url="多媒体与嵌入.html">多媒体与嵌入</a></li>
+					<li><a href="javascript:void(0)" data-url="文档的基本组成.html">文档的基本组成</a></li>
+					<li><a href="javascript:void(0)" data-url="超链接.html">超链接</a></li>
+				</ol>
+			</div>
+			<div id="right">
+			</div>		
+		</div>
+	
+	    <script>
+	    	/*H5不支持frameset和frame，采用如下方式达到效果*/
+		  	$("#left a").click(function(){
+		  		$("#right").load($(this).attr("data-url"));
+		  	});
+		  	$("#right").load($("#left a:first").attr("data-url"));
+	    </script>
+	</body>
+</html>

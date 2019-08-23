@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>CSS</title>
+		<link rel="stylesheet" href="css/base.css" />
+	</head>
+	<body>
+		<h1>CSS</h1>
+
+		<h2>@</h2>
+		<p>@-规则(At-rules)在CSS中被用来传递元数据、条件信息或其它描述性信息.它由（@）符号开始，紧跟着一个表明它是哪种规则的描述符，之后是这种规则的语法块，并最终由一个半角分号（;）结束。</p>
+		<ul>
+			<li>@charset 和 @import （元数据）</li>
+			<dl>
+				<dt>具体语法示例： </dt>
+				<dd><code>@import 'custom.css';//该@-规则向当前 CSS 导入其它 CSS 文件</code></dd>
+			</dl>
+			<li>@media 或 @document （条件信息，又被称为嵌套语句，见下方。)
+				<dl>
+					<dt>嵌套语句 是@-规则中的一种，它的语法是 CSS 规则的嵌套块，只有在特定条件匹配时才会应用到文档上。特定条件如下：</dt>
+					<dd>
+						<ul>
+							<li>@media 只有在运行浏览器的设备匹配其表达条件时才会应用该@-规则的内容；</li>
+							<li>@supports 只有浏览器确实支持被测功能时才会应用该@-规则的内容；</li>
+							<li>@document 只有当前页面匹配一些条件时才会应用该@-规则的内容。</li>
+						</ul>
+					</dd>
+				</dl>
+			</li>
+			<dl>
+				<dt>具体语法示例： </dt>
+				<dd>
+					<code><pre>
+@media (min-width: 801px) {
+  body {
+    margin: 0 auto;
+    width: 800px;
+  }
+}
+							</pre></code>
+				</dd>
+			</dl>					
+			<li>@font-face （描述性信息）</li>
+
+		</ul>	
+		
+		<h2>弹性区块</h2>
+		<ul>
+			<li><a href="html/CSS_弹性盒子_1.html">弹性盒子1</a></li>
+			<li><a href="html/CSS_弹性盒子_2.html">弹性盒子2</a></li>
+		</ul>
+		<h3>步骤：</h3>
+		<p>首先：给flexible元素的<strong>父元素</strong>父元素设置样式<strong>display:flex</strong></p>
+		<ol>
+			<li>
+				<dl>
+					<dt>列or行：</dt>
+					<dd>父<code>flex-direction: column;</code>默认是row</dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>换行：</dt>
+					<dd>父<code>flex-wrap: wrap</code>;子<code>flex: 200px;</code>,意味着每个元素的宽度至少是200px；</dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>动态尺寸：</dt>
+					<dd><code>flex: 1;</code></dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>水平和垂直对齐:</dt>
+					<dd>父<code>align-items: center;justify-content: space-around;</code></dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>flex 项排序</dt>
+					<dd>子<code>order:1;</code>所有 flex 项默认的 order 值是 0</dd>
+				</dl>
+			</li>
+		</ol>
+		<h2>网格布局</h2>
+		<ul>
+			<li><a href="html/CSS_网格.html">css网格布局</a></li>
+			<li><code>box-sizing: border-box;</code>CSS 中的 box-sizing 属性定义了 user agent 应该如何计算一个元素的总宽度和总高度。</li>
+		</ul>
+	</body>
+</html>

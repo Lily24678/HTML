@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>其他嵌入技术&lt;iframe&gt;</title>
+	</head>
+	<body>
+		<h1>&lt;iframe&gt;</h1>
+		<h2>属性</h2>
+		<dl>
+			<dt>src:</dt>
+		</dl>
+		<dl>
+			<dt>width 和 height:</dt>
+		</dl>		
+		<dl>
+			<dt>allowfullscreen:</dt>
+			<dd>如果设置，&lt;iframe>则可以通过全屏API设置为全屏模式（稍微超出本文的范围）。</dd>
+		</dl>
+		<dl>
+			<dt>frameborder:</dt>
+			<dd>如果设置为1，则会告诉浏览器在此框架和其他框架之间绘制边框，这是默认行为。0删除边框。不推荐这样设置，因为在CSS中可以更好地实现相同的效果。border: none;</dd>
+		</dl>
+		<dl>
+			<dt>备选内容:</dt>
+			<dd>与&lt;video&gt;等其他类似元素相同，您可以在&lt;iframe&gt;&lt;/iframe&gt;标签之间包含备选内容，<strong>如果浏览器不支持&lt;iframe&gt;，将会显示备选内容.</strong></dd>
+		</dl>
+		<dl>
+			<dt>sandbox:</dt>
+			<dd>该属性需要在已经支持其他&lt;iframe&gt;功能（例如IE 10及更高版本）但稍微更现代的浏览器上才能工作，该属性可以提高安全性设置; 我们将在下一节中更加详细地谈到。</dd>
+		</dl>
+		
+		<h2>案例</h2>
+		<iframe src="https://cn.bing.com"
+		        width="100%" height="500" frameborder="0"
+		        allowfullscreen sandbox>
+		  <p> <a href="https://cn.bing.com">
+		    Fallback link for browsers that don't support iframes
+		  </a> </p>
+		</iframe>		
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>超链接</title>
+	</head>
+	<body>
+		<h1>超链接</h1>
+		<h2>使用title属性添加信息支持</h2>
+		<p>连接的标题仅当鼠标悬其上的时候显示。</p>
+		<hr />
+		<p>I'm creating a link to
+		<a href="https://www.mozilla.org/en-US/"
+		   title="The best place to find more information about Mozilla's
+		          mission and how to contribute">the Mozilla homepage</a>.
+		</p>
+		
+		<h2>块级链接</h2>
+		<p>你可以将一些内容转换为链接，甚至是 块级元素。</p>
+		<hr />
+		<a href="https://www.mozilla.org/en-US/">
+  		<img src="img/mozilla-image.png" alt="mozilla logo that links to the mozilla homepage">
+		</a>
+		
+		<h2 id="Mailing_address">文档片段</h2>
+		<p>超链接除了可以链接到文档外，也可以链接到HTML文档的特定部分（被称为文档片段）.</p>
+		<hr />
+		<p>Want to write us a letter? Use our <a href="html文字处理.html#Mailing_address">mailing address</a>.</p>
+		<p>The <a href="#Mailing_address">company mailing address</a> can be found at the bottom of this page.</p>
+
+		<h2>在下载链接时使用下载属性</h2>
+		<hr />
+		<a href="https://download.mozilla.org/?product=firefox-latest-ssl&os=win64&lang=en-US"
+		   download="firefox-latest-64bit-installer.exe">
+		  Download Latest Firefox for Windows (64-bit) (English, US)
+		</a>
+		
+		<h2>电子邮件链接</h2>
+		<p>
+			<ul>
+				<li>使用&lt;a&gt;元素和mailto：URL的方案。其最基本和最常用的使用形式为一个mailto:link （链接），链接简单说明收件人的电子邮件地址。</li>
+				<li>除了电子邮件地址，您还可以提供其他信息。事实上，任何标准的邮件头字段可以被添加到你提供的邮件URL。其中最常用的是主题(subject)、抄送(cc)和主体(body)</li>
+			</ul>
+		</p>
+		<hr />
+		<a href="mailto:nowhere@mozilla.org">Send email to nowhere</a><br />
+		<a href="mailto:nowhere@mozilla.org?cc=name2@rapidtables.com&bcc=name3@rapidtables.com&amp;subject=The%20subject%20of%20the%20email &amp;body=The%20body%20of%20the%20email">
+		  Send mail with cc, bcc, subject and body
+		</a>
+	</body>
+</html>

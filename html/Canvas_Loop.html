@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Canvas API</title>
+		<style>
+			body {
+				margin: 0;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+
+	<body>
+		<canvas class="myCanvas">
+			<p>卧槽你的浏览器竟然不支持 canvas！</p>
+		</canvas>
+		<script>
+			/*设置canvas的尺寸*/
+			var canvas = document.querySelector('.myCanvas');
+			var width = canvas.width = window.innerWidth; //可视区域宽度
+			var height = canvas.height = window.innerHeight;
+
+			/*获取canvas的上下文并设置完成*/
+			var ctx = canvas.getContext('2d'); //这里所需2d画布。可选上下文还包括 WebGL（webgl）、WebGL 2（webgl2）等等
+			ctx.fillStyle = 'rgb(0,0,0)';
+			ctx.fillRect(0, 0, width, height); //画布左上角的坐标是(0, 0)，横坐标（x）轴向右延伸，纵坐标（y）轴向下延伸。
+
+			/*创建一个循环*/
+			ctx.translate(width/2, height/2);//用于移动画布的原点。
+			
+			var length = 250;
+			var moveOffset = 20;
+			
+			for(var i = 0; i < length; i++) {
+				ctx.fillStyle = 'rgba(' + (255-length) + ', 0, ' + (255-length) + ', 0.9)';
+				ctx.beginPath();
+				ctx.moveTo(moveOffset, moveOffset);
+				ctx.lineTo(moveOffset+length, moveOffset);
+				var triHeight = length/2 * Math.tan(degToRad(60));
+				ctx.lineTo(moveOffset+(length/2), moveOffset+triHeight);
+				ctx.lineTo(moveOffset, moveOffset);
+				ctx.fill();
+				
+				length--;
+				moveOffset += 0.7;
+				ctx.rotate(degToRad(5));// rotate() 来旋转整块画布，在绘制下个三角形前画布旋转 5°。			
+			}	
+			
+			/*将角度换算为弧度*/
+			function degToRad(degrees) {
+				return degrees * Math.PI / 180;
+			};		
+			/*给定范围的随机数*/
+			function rand(min, max) {
+			  return Math.floor(Math.random() * (max-min+1)) + (min);
+			}			
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,57 @@
+strong{
+	color: red;
+}
+
+p{
+	text-indent: 2rem;
+}
+
+ul,ol{
+	list-style-position: inside;
+}
+.comment{
+	color: rgba(199,21,133,1);
+}
+
+/*html{
+	font-size: 10px;
+}*/
+/*------响应式页面设计------*/
+/*
+ * 如果文档宽度小于 300 像素则修改背景颜色(background-color):
+@media screen and (max-width: 300px) {
+    body {
+        background-color:lightblue;
+    }
+} 
+*/
+@media only screen and (max-width: 320px) {
+	html {
+		font-size: 8px!important;
+	}
+}
+@media only screen and (min-width: 320px) and (max-width: 400px) {
+	html {
+		font-size: 10px!important;
+	}
+}
+@media only screen and (min-width: 400px) and (max-width: 768px) {
+	html {
+		font-size: 11px!important;
+	}
+}
+
+@media only screen and (min-width: 768px)and (max-width: 1024px) {
+	html{
+		max-width: none;
+		font-size: 16px!important;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	html{
+		max-width: none;
+		font-size: 16px!important;
+	}
+}
+/*-----------结束----------响应式页面设计------*/

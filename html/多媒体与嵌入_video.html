@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>视频&lt;video&gt;</title>
+	</head>
+	<body>
+		<h1>&lt;video&gt;</h1>
+		<h2>属性</h2>
+		<ul>
+			<li>src</li>
+			<li>controls:用户必须能够控制视频和音频的回放功能。</li>
+			<li>&lt;video&gt; 标签内的段落:这个叫做后备内容 — 当浏览器不支持 &lt;video&gt; 标签的时候，它将会显示出来，它使我们能够对旧的浏览器做一些兼容处理。</li>
+			<li>width 和 height:你可以用属性控制视频的尺寸，也可以用 CSS 来控制视频尺寸。 无论使用哪种方式，视频都会保持它原始的长宽比 — 也叫做纵横比。如果你设置的尺寸没有保持视频原始长宽比，那么视频边框将会拉伸，而未被视频内容填充的部分，将会显示默认的背景颜色。</li>
+			<li>autoplay:这个属性会使音频和视频内容立即播放，即使页面的其他部分还没有加载完全。建议不要应用这个属性在你的网站上，因为用户们会比较反感自动播放的媒体文件。</li>
+			<li>loop:这个属性可以让音频或者视频文件循环播放。同样不建议使用，除非有必要。</li>
+			<li>muted:这个属性会导致媒体播放时，默认关闭声音。</li>
+			<li>poster:这个属性指向了一个图像的URL，这个图像会在视频播放前显示。通常用于粗略的预览或者广告。</li>
+			<li>preload:这个属性被用来缓冲较大的文件，有3个值可选：
+				<ul>
+					<li>"none" ：不缓冲</li>
+					<li>"auto" ：页面加载后缓存媒体文件</li>
+					<li>"metadata" ：仅缓冲文件的元数据</li>
+				</ul>
+			</li>
+		</ul>
+		
+		<h2>多格式支持</h2>
+		<p>将 src 属性从&lt;video&gt; 标签中移除，转而将它放在几个单独的标签  &lt;source&gt; 当中。每个  &lt;source&gt; 标签页含有一个 type 属性，这个属性是可选的，但是建议你添加上这个属性 — 它包含了视频文件的 MIME types ，同时浏览器也会通过检查这个属性来迅速的跳过那些不支持的格式。</p>
+		
+		<h2>显示音轨文本</h2>
+		<ol>
+			<li>以 .vtt 后缀名保存文件。</li>
+			<li>用 <track> 标签链接 .vtt 文件， &lt;track&gt; 标签需放在 &lt;audio&gt; 或 &lt;video&gt; 标签当中，同时需要放在所有 &lt;source&gt; 标签之后。使用 kind 属性来指明是哪一种类型，如 subtitles 、 captions 、 descriptions。然后，使用 srclang 来告诉浏览器你是用什么语言来编写的 subtitles。</li>
+		</ol>
+		<p>WebVTT 是一个格式，用来编写文本文件，这个文本文件包含了众多的字符串，这些字符串会带有一些元数据，它们可以用来描述这个字符串将会在视频中显示的时间，甚至可以用来描述这些字符串的样式以及定位信息。这些字符串叫做 cues ，你可以根据不同的需求来显示不同的样式，最常见的如下：
+			<dl>
+				<dt>subtitle</dt>
+				<dd>通过添加翻译字幕，来帮助那些听不懂外国语言的人们理解音频当中的内容。</dd>
+			</dl>
+			<dl>
+				<dt>captions</dt>
+				<dd>同步翻译对白，或是描述一些有重要信息的声音，来帮助那些不能听音频的人们理解音频中的内容。</dd>
+			</dl>
+			<dl>
+				<dt>timed descriptions</dt>
+				<dd>将文字转换为音频，用于服务那些有视觉障碍的人。	</dd>
+			</dl>
+		</p>
+
+		
+		<h2>案例</h2>
+		<h3>入门案例</h3>
+		<video controls width="400" height="400"
+		       autoplay loop muted
+		       poster="../img/poster.png">
+		  <source src="../video_and_audio/rabbit320.mp4" type="video/mp4">
+		  <source src="../video_and_audio/rabbit320.webm" type="video/webm">
+		  <p>你的浏览器不支持 HTML5 视频。可点击<a href="../video_and_audio/rabbit320.mp4">此链接</a>观看</p>
+		</video>	
+		
+		<h3>带字幕案例</h3>
+		<video id="video" controls preload="metadata">
+		   <source src="../video_and_audio/sintel-short.mp4" type="video/mp4">
+		   <source src="../video_and_audio/sintel-short.webm" type="video/webm">
+		   <track label="English" kind="subtitles" srclang="en" src="../vtt/sintel-en.vtt" default>
+		   <track label="Deutsch" kind="subtitles" srclang="de" src="../vtt/sintel-de.vtt">
+		   <track label="Español" kind="subtitles" srclang="es" src="../vtt/sintel-es.vtt"> 
+		</video>
+		
+	</body>
+</html>

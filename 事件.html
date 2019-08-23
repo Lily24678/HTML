@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>事件</title>
+	</head>
+	<body>
+		<h1>事件</h1>
+		<h2>addEventListener</h2>
+		<code><pre>
+	if (document.addEventListener) {//所有主流浏览器，除了 IE 8 及更早 IE版本
+	    document.addEventListener("click", myFunction);
+	} else if (document.attachEvent) {// IE 8 及更早 IE 版本
+	    document.attachEvent("onclick", myFunction);
+	}			
+		</pre></code>
+		
+		<h2>onXxx</h2>
+		<p><a href="HTML表单.html#progress">见表单-表单完成情况JS</a></p>
+	</body>
+</html>
